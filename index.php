@@ -15,6 +15,13 @@
 
 <body>
   <div class="container">
+    <?php
+      if (isset($_POST ["name"])) {
+        print("Aufruf durch das Formular");
+      } else {
+        print("Aufruf über URL");
+      }
+    ?>
     <h1>Formular</h1>
     <div class="col-6">
       <form method="POST">
