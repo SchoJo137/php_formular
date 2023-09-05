@@ -22,7 +22,18 @@
         $vorname = $_POST["vorname"];
         $adresse = $_POST["adresse"];
         $email = $_POST["email"];
-        print("<br />Sie haben $name, $vorname, $adresse und $email eingegeben.");
+        $pdo = new PDO('mysql:host=localhost;dbname=php_formular','root', '');
+        if ($pdo){
+          print("<br />Verbindung zur Datenbank");
+          $statement = $pdo->prepare("INSERT INTO kunde (name, vorname, adresse, email) VALUES (?, ?, ?,?)");
+          $statement->execute(array($name,$vorname,$adresse,$email));   
+          $neue_id = $pdo->lastInsertId();
+          print("Neuer Nutzer mit ID $neue_id angelegt");
+
+        } else {
+          print("Verbindung gescheitert");
+        }
+        # print("<br />Sie haben $name, $vorname, $adresse und $email eingegeben.");
       } else {
         print("Aufruf über URL");
       }
