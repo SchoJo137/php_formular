@@ -18,6 +18,11 @@
     <?php
       if (isset($_POST ["name"])) {
         print("Aufruf durch das Formular");
+        $name = $_POST["name"];
+        $vorname = $_POST["vorname"];
+        $adresse = $_POST["adresse"];
+        $email = $_POST["email"];
+        print("<br />Sie haben $name, $vorname, $adresse und $email eingegeben.");
       } else {
         print("Aufruf über URL");
       }
