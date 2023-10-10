@@ -24,7 +24,7 @@
           $email = $_POST["email"];
           $pdo = new PDO('mysql:host=localhost;dbname=php_formular','root', '');
           if ($pdo){
-            print("<br />Verbindung zur Datenbank");
+            print("<br />Verbindung zur Datenbank <br />");
             $statement = $pdo->prepare("INSERT INTO kunde (name, vorname, adresse, email) VALUES (?, ?, ?,?)");
             $statement->execute(array($name,$vorname,$adresse,$email));   
             $neue_id = $pdo->lastInsertId();
