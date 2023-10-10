@@ -24,8 +24,30 @@
       if ($pdo) {
 
           $results = $pdo->query('SELECT * FROM kunde');
-          print($results);
-          
+          foreach($results as $result) {
+
+
+
+            // foreach($result as $zelle) {
+            //   print($zelle.", ");
+            // }
+
+            print('<a href="kunde.php?id=');
+            print($result['id']);
+            print('" target="_blank" >');
+
+            // print("ID = ".$result['id'].", ");
+            print($result['name'].", ");
+            print($result['vorname'].", ");
+            // print($result['adresse'].", ");
+            // print($result['email'].", ");
+
+            print("</a>");
+
+            print("<br />");
+            
+          }
+
       } else {
         print("Datenbankuzgriff gescheitert");
       }
